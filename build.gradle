@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id "idea"
+}
+
+repositories {
+    mavenCentral()
+}
+
+def gson_version = '2.10.1'
+def postgresql_version = '42.7.1'
+def hibernate_version = '6.4.4.Final'
+def hibernate_validator_version = '6.2.0.Final'
+def query_dsl_version = '5.0.0'
+def jakarta_persistence_version = '3.1.0'
+def slf4j_version = '2.20.0'
+def jackson_version = '2.15.3'
+
+dependencies {
+
+    api "org.apache.logging.log4j:log4j-slf4j-impl:$slf4j_version"
+
+    api "com.google.code.gson:gson:$gson_version"
+    api "org.postgresql:postgresql:$postgresql_version"
+
+    implementation "org.hibernate.orm:hibernate-core:$hibernate_version"
+    implementation "org.hibernate.orm:hibernate-hikaricp:$hibernate_version"
+    implementation "org.hibernate.orm:hibernate-jpamodelgen:$hibernate_version"
+    implementation "org.hibernate.validator:hibernate-validator:$hibernate_validator_version"
+
+    implementation "com.querydsl:querydsl-jpa:$query_dsl_version:jakarta"
+    implementation "com.querydsl:querydsl-sql:$query_dsl_version"
+
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+
+    annotationProcessor "com.querydsl:querydsl-apt:$query_dsl_version:jakarta"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api:$jakarta_persistence_version"
+
+    // Add other dependencies as needed
+}
+
+//// QueryDSL plugin configuration
+//querydsl {
+//    jpa = true
+//    querydslSourcesDir = file('src/main/generated')
+//}
