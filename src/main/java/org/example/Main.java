@@ -14,7 +14,7 @@ public class Main {
 
 //        createData(em);
 
-        em.createQuery("select i from IndexEnv i where i.indexEnt.indexComponents")
+//        em.createQuery("select i from IndexEnv i where i.indexEnt.indexComponents")
     }
 
     private static void createData(EntityManager em) {
